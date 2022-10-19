@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {StateService} from '../_services/state.service';
+import {Product} from '../_models/Product.model';
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  products: Array<Product>;
 
-  constructor() {}
+  constructor(private state: StateService, private storage: Storage) {
+    this.state.products$.subscribe(products => {
+      this.products = products;
+    });
 
+    this.storage.set('test', true);
+
+    console.log('test', this.storage.get('test'));
+  }
 }
