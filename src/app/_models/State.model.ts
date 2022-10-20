@@ -1,12 +1,17 @@
-import {User} from './User.mode';
 import {Product} from './Product.model';
+import {Category} from './Category.model';
 
 export class State {
-  products: Array<Product>;
-  //user: User;
+  loading = false;
+  categories: Array<Category> = [];
+  products: Array<Product> = [];
 
-  constructor(products: Array<Product>) {
-    this.products = products;
+  constructor(state: State) {
+      if(state) {
+        this.loading = state.loading;
+        this.categories = state.categories;
+        this.products = state.products;
+      }
   }
 
 }

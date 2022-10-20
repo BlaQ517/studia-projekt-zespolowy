@@ -1,6 +1,18 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export class Product {
-  id: number;
+  uuid?: string;
   name: string;
-  image: string;
-  categoryId: number;
+  description: string;
+  categoryId: string;
+
+  constructor(product?: Product) {
+    this.uuid = uuidv4();
+
+    if(product) {
+      this.name = product.name;
+      this.description = product.description;
+      this.categoryId = product.categoryId;
+    }
+  }
 };
