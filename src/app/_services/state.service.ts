@@ -10,6 +10,7 @@ import {LoadingController} from '@ionic/angular';
   providedIn: 'root'
 })
 
+
 export class StateService {
   state = new State({
       loading: true,
