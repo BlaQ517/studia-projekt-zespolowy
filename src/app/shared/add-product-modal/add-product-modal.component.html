@@ -23,7 +23,6 @@
   <ion-item>
       <ion-select interface="action-sheet" placeholder="Wybierz kategorię" (ionChange)="changeCategory($event)" style="width: 100%">
         <ion-select-option [value]="cat.uuid" *ngFor="let cat of categories">{{cat.name}}</ion-select-option>
-        <ion-select-option value="addCategory">Dodaj kategorię</ion-select-option>
       </ion-select>
   </ion-item>
 </ion-content>
